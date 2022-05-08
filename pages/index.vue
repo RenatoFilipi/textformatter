@@ -1,5 +1,7 @@
 <template>
-  <Tutorial />
+  <div class="h-screen flex flex-col justify-center items-center">
+    <p class="font-qs">Hello World</p>
+  </div>
 </template>
 
 <script lang="ts">
