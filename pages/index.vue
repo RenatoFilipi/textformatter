@@ -14,41 +14,66 @@
           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none mb-4 font-qs"
           placeholder="Your text..."
         ></textarea>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <div class="flex gap-2">
-            <button
-              type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 font-qs text-sm"
-              @click="ToUpperCaseAll"
+            <select
+              id="mode"
+              v-model="selected"
+              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-qs text-base"
             >
-              Uppercase all
-            </button>
+              <option disabled :value="0">Select an option</option>
+              <option :value="1">Uppercase all</option>
+              <option :value="2">Lowercase all</option>
+              <option :value="3">Capitalize sentence</option>
+            </select>
             <button
+              :disabled="selected == '0' ? true : false"
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 font-qs text-sm"
-              @click="ToLowerCaseAll"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 flex gap-2 justify-center items-center"
+              @click="Format"
             >
-              Lowercase all
-            </button>
-            <button
-              type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 font-qs text-sm"
-              @click="ToCapitalizeSentence"
-            >
-              Capitalize sentence
-            </button>
-            <button
-              type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 font-qs text-sm"
-              @click="ToCapitalizeWords"
-            >
-              Capitalize words
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
+                />
+              </svg>
+              <span>Format</span>
             </button>
           </div>
-          <div class="">
+          <div class="flex gap-1">
             <button
               type="button"
-              class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-medium px-5 py-2.5 text-center font-qs flex justify-center items-center gap-1 text-sm"
+              class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2"
+              @click="Delete"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-medium px-5 py-2.5 text-center font-qs flex justify-center items-center gap-2 text-base"
               @click="CopyToClipboard"
             >
               <svg
@@ -57,7 +82,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="1"
+                stroke-width="2"
               >
                 <path
                   stroke-linecap="round"
@@ -88,10 +113,29 @@ export default Vue.extend({
   data() {
     return {
       customText: '',
+      selected: 0,
     }
   },
 
   methods: {
+    Format() {
+      switch (this.selected) {
+        case 1:
+          this.ToUpperCaseAll()
+          break
+        case 2:
+          this.ToLowerCaseAll()
+          break
+        case 3:
+          this.ToCapitalizeSentence()
+          break
+      }
+    },
+
+    Delete() {
+      this.customText = ''
+    },
+
     ToUpperCaseAll() {
       this.customText = this.customText.trim().toUpperCase()
     },
