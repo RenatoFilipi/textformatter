@@ -109,17 +109,20 @@
       </div>
     </div>
     <About />
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import About from '~/components/About.vue'
+import Footer from '~/components/Footer.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
   components: {
     About,
+    Footer,
   },
 
   data() {
