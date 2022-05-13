@@ -34,7 +34,7 @@
             <button
               :disabled="selected == '0' ? true : false"
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 flex gap-2 justify-center items-center"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 flex gap-2 justify-center items-center"
               @click="Format"
             >
               <svg
@@ -57,7 +57,7 @@
           <div class="flex gap-1">
             <button
               type="button"
-              class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2"
+              class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2"
               @click="Delete"
             >
               <svg
@@ -78,7 +78,7 @@
 
             <button
               type="button"
-              class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-medium px-5 py-2.5 text-center font-qs flex justify-center items-center gap-2 text-base"
+              class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 rounded-lg font-medium px-5 py-2.5 text-center font-qs flex justify-center items-center gap-2 text-base"
               @click="CopyToClipboard"
             >
               <svg
@@ -90,12 +90,19 @@
                 stroke-width="2"
               >
                 <path
+                  v-if="!isCopied"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                />
+                <path
+                  v-else
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
                 />
               </svg>
-              <span>Copy to clipboard</span>
+              <span>{{ isCopied ? 'Copied' : 'Copy to clipboard' }}</span>
             </button>
           </div>
         </div>
@@ -120,6 +127,7 @@ export default Vue.extend({
       customText: '',
       selected: 0,
       WrapLines: true,
+      isCopied: false,
     }
   },
 
@@ -167,6 +175,10 @@ export default Vue.extend({
 
     CopyToClipboard() {
       navigator.clipboard.writeText(this.customText)
+      this.isCopied = true
+      setTimeout(() => {
+        this.isCopied = false
+      }, 3000)
     },
   },
 })
