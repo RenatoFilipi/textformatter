@@ -25,6 +25,7 @@
               <option :value="1">Uppercase all</option>
               <option :value="2">Lowercase all</option>
               <option :value="3">Capitalize sentence</option>
+              <option :value="4">Capitalize words</option>
             </select>
             <button
               :disabled="selected == '0' ? true : false"
@@ -129,6 +130,9 @@ export default Vue.extend({
         case 3:
           this.ToCapitalizeSentence()
           break
+        case 4:
+          this.ToCapitalizeWords()
+          break
       }
     },
 
@@ -151,13 +155,9 @@ export default Vue.extend({
     },
 
     ToCapitalizeWords() {
-      this.customText = this.customText
-        .trim()
-        .split(' ')
-        .map((word) => {
-          return word[0].toUpperCase() + word.substring(1).toLowerCase()
-        })
-        .join(' ')
+      const regex = /(\b[a-z](?!\s))/g
+      const converted = this.customText.replace(/\b\w/g, (c) => c.toUpperCase())
+      this.customText = converted
     },
 
     CopyToClipboard() {
