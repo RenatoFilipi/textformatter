@@ -33,7 +33,27 @@ export default {
     '@nuxtjs/google-fonts',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://google-analytics.nuxtjs.org/
+    '@nuxtjs/google-analytics',
   ],
+
+  // Google Analytics config
+  googleAnalytics: {
+    id: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
+    layer: 'dataLayer',
+    pageTracking: true,
+    debug: {
+      sendHitTask: true,
+    },
+  },
+  publicRuntimeConfig: {
+    id: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
+    layer: 'dataLayer',
+    pageTracking: true,
+    debug: {
+      sendHitTask: true,
+    },
+  },
 
   // Google font setup
   googleFonts: {
