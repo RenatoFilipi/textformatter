@@ -91,6 +91,49 @@
             </div>
           </div>
         </div>
+        <div class="pt-12 flex gap-3 flex-col">
+          <h3 class="font-qs text-gray-800 font-bold text-3xl mb-8">
+            Letter case
+          </h3>
+          <div class="flex gap-5 flex-wrap">
+            <div class="flex flex-col gap-3">
+              <p class="font-qs text-gray-800 font-medium text-lg">
+                Letter case is the distinction between the letters that are in
+                larger uppercase or capitals (or more formally majuscule) and
+                smaller lowercase (or more formally minuscule) in the written
+                representation of certain languages. The writing systems that
+                distinguish between the upper and lowercase have two parallel
+                sets of letters, with each letter in one set usually having an
+                equivalent in the other set. The two case variants are
+                alternative representations of the same letter: they have the
+                same name and pronunciation and are treated identically when
+                sorting in alphabetical order.
+              </p>
+              <p class="font-qs text-gray-800 font-medium text-lg">
+                Letter case is generally applied in a mixed-case fashion, with
+                both upper and lowercase letters appearing in a given piece of
+                text for legibility. The choice of case is often prescribed by
+                the grammar of a language or by the conventions of a particular
+                discipline. In orthography, the uppercase is primarily reserved
+                for special purposes, such as the first letter of a sentence or
+                of a proper noun (called capitalisation, or capitalised words),
+                which makes the lowercase the more common variant in regular
+                text.
+              </p>
+              <p class="font-qs text-gray-800 font-medium text-lg">
+                In some contexts, it is conventional to use one case only, for
+                example, engineering design drawings are typically labelled
+                entirely in uppercase letters, which are easier to distinguish
+                individually than the lowercase when space restrictions require
+                that the lettering be very small. In mathematics, on the other
+                hand, letter case may indicate the relationship between
+                mathematical objects, with uppercase letters often representing
+                “superior” objects (e.g., X could be a mathematical set
+                containing the generic member x).
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

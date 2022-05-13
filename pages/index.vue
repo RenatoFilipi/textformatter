@@ -7,13 +7,17 @@
         </h1>
       </div>
       <div>
-        <textarea
-          v-model="customText"
-          cols="120"
-          rows="10"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none mb-4 font-qs"
-          placeholder="Your text..."
-        ></textarea>
+        <div>
+          <textarea
+            v-model="customText"
+            :wrap="WrapLines ? 'soft' : 'off'"
+            cols="120"
+            rows="10"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none mb-4 font-qs"
+            placeholder="Your text..."
+          ></textarea>
+        </div>
+
         <div class="flex justify-between items-center">
           <div class="flex gap-2">
             <select
@@ -115,6 +119,7 @@ export default Vue.extend({
     return {
       customText: '',
       selected: 0,
+      WrapLines: true,
     }
   },
 
