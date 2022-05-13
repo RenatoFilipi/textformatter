@@ -17,7 +17,7 @@
     >
       <li>
         <a
-          href="https://github.com/RenatoFilipi/binary2decimal"
+          href="https://github.com/RenatoFilipi/textformatter"
           target="_blank"
           rel="noopener noreferrer"
           class="mr-4 md:mr-6 font-qs flex gap-2"
