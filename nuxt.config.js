@@ -8,7 +8,17 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'This is a Text Formatter website. where you can format your text to uppercase all, lowercase all, capitalize sentence and capitalize words',
+      },
+      {
+        name: 'keywords',
+        content: 'Text, Formatter, Uppercase, Lowercase, capitalize',
+      },
+      { name: 'author', content: 'Renato Filipi' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
