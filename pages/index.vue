@@ -7,18 +7,20 @@
         </h1>
       </div>
       <div>
-        <div>
+        <div class="flex justify-center">
           <textarea
             v-model="customText"
             :wrap="WrapLines ? 'soft' : 'off'"
             cols="120"
             rows="10"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none mb-4 font-qs"
+            class="block p-2.5 w-96 sm:w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none mb-4 font-qs"
             placeholder="Your text..."
           ></textarea>
         </div>
 
-        <div class="flex justify-between items-center">
+        <div
+          class="flex justify-between items-center flex-col sm:flex-row gap-6"
+        >
           <div class="flex gap-2">
             <select
               id="mode"
@@ -37,20 +39,6 @@
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 flex gap-2 justify-center items-center"
               @click="Format"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
-                />
-              </svg>
               <span>Format</span>
             </button>
           </div>

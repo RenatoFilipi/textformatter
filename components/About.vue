@@ -8,7 +8,7 @@
             Text Formatter
           </h3>
           <div class="flex flex-col gap-3">
-            <p class="font-qs text-gray-800 font-medium text-lg">
+            <p class="font-qs text-gray-800 font-medium text-lg text-justify">
               This Text Formatter is a online text formatting tool that can
               format the given text. Currently suports: Uppercase all the given
               text, Lowercase all the given text, Capitalize the sentence and
@@ -96,7 +96,7 @@
             Letter case
           </h3>
           <div class="flex gap-5 flex-wrap">
-            <div class="flex flex-col gap-3">
+            <div class="flex flex-col gap-3 text-justify">
               <p class="font-qs text-gray-800 font-medium text-lg">
                 Letter case is the distinction between the letters that are in
                 larger uppercase or capitals (or more formally majuscule) and
